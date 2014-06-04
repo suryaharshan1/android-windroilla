@@ -1,0 +1,104 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:ems="10"
+        android:inputType="numberSigned" />
+
+    <Button
+        android:id="@+id/plus"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/input"
+        android:layout_below="@+id/input"
+        android:layout_marginTop="24dp"
+        android:text="@string/plus" 
+        android:onClick="btclick"/>
+
+    <TextView
+        android:id="@+id/inter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/input"
+        android:layout_alignRight="@+id/input"
+        android:layout_marginBottom="44dp"
+        android:layout_marginRight="14dp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/opcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/inter"
+        android:layout_toRightOf="@+id/inter"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <Button
+        android:id="@+id/subtract"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/plus"
+        android:layout_toRightOf="@+id/plus"
+        android:text="@string/minus" 
+        android:onClick="btclick">
+     </Button>
+
+    <Button
+        android:id="@+id/multiply"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/subtract"
+        android:layout_alignBottom="@+id/subtract"
+        android:layout_toRightOf="@+id/subtract"
+        android:onClick="btclick"
+        android:text="@string/asterik" />
+
+    <Button
+        android:id="@+id/equal"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:onClick="btclick"
+        android:text="@string/equal" />
+
+    <Button
+        android:id="@+id/divide"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/multiply"
+        android:layout_toRightOf="@+id/multiply"
+        android:text="@string/frontslash" 
+        android:onClick="btclick"/>
+
+    <Button
+        android:id="@+id/cancel"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/divide"
+        android:layout_toRightOf="@+id/divide"
+        android:text="@string/cancelc" 
+        android:onClick="btclick"/>
+
+</RelativeLayout>

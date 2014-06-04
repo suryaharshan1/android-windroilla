@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.littleturn.optionmenu.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never">
+    </item>
+    <item android:id="@+id/item1" android:title="Facebook">
+        <menu>
+            <item android:id="@+id/item4" android:title="Status"/>
+            <item android:id="@+id/item5" android:title="Friends"/>
+            <item android:id="@+id/item6" android:title="Logout"/>
+        </menu>
+    </item>
+    <item android:id="@+id/item2" android:title="Twitter"></item>
+    <item android:id="@+id/item3" android:title="Google+"></item>
+
+</menu>

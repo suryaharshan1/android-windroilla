@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.littleturn.database.UserInfo" >
+    <item android:id="@+id/item1" android:title="Change Password"></item>
+    <item android:id="@+id/item2" android:title="Update Profile"></item>
+    <item android:id="@+id/item3" android:title="Other Users"></item>
+    <item android:id="@+id/item4" android:title="Logout"></item>
+
+</menu>

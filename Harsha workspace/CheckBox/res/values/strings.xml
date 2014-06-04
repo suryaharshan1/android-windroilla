@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">CheckBox</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_welcome">Welcome</string>
+    <string name="welcome">Welcome to </string>
+    <string name="j2ee">J2EE</string>
+    <string name="android">ANDROID</string>
+    <string name="select">Select a course</string>
+
+</resources>

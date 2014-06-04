@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="my_name">Surya Harsha N</string>
+    <string name="say_hello">SAY HELLO!</string>
+    <string name="UName_query">Enter your Name :</string>
+    <string name="null_string"/>
+    <string-array name="spinnername">
+        <item >Hello</item>
+        <item >Hola</item>
+        <item >Namaste</item>
+        <item >Namaskar</item>
+    </string-array>
+    <string name="spinnerprompt">Select a style</string>
+
+</resources>

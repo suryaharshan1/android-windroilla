@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Quiz</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="q1">Which of the following are OOP based programming languages?</string>
+    <string name="q1a">JAVA</string>
+    <string name="q1b">Scala</string>
+    <string name="q1d">C</string>
+    <string name="q1c">Python</string>
+    <string name="submit">SUBMIT</string>
+    <string name="title_activity_result">ResultActivity</string>
+
+</resources>

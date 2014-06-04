@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.littleturn.popupmenu.MainActivity" >
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+    <item android:id="@+id/item1" android:title="Facebook"></item>
+    <item android:id="@+id/item2" android:title="Yahoo"></item>
+    <item android:id="@+id/item3" android:title="Google"></item>
+    <item android:id="@+id/item4" android:title="Twitter"></item>
+
+</menu>
