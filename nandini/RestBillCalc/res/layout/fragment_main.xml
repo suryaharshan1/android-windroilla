@@ -1,0 +1,46 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+    
+    <TextView
+        android:id="@+id/lblTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:text="Basic Calculator"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <EditText
+        android:id="@+id/num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/lblTitle"
+        android:layout_below="@+id/lblTitle"
+        android:layout_marginTop="47dp"
+        android:ems="5"
+        android:inputType="numberDecimal|numberSigned" >
+    </EditText>
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/display"
+        android:layout_below="@+id/num"
+        android:layout_marginTop="17dp"
+        android:text="Calculate" />
+
+    <TextView
+        android:id="@+id/display"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/num"
+        android:layout_below="@+id/btnCalculate"
+        android:layout_marginTop="18dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>  
