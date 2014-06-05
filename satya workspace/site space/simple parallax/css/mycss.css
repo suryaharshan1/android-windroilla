@@ -1,0 +1,50 @@
+@font-face
+{
+font-family: minimal;
+src: url(fonts/minimal.otf);
+}
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+        #intro { 
+			background: url(../home.jpg) 50% 0 fixed;   
+		/*    background: url(images/bg1.jpg) 50% 0 fixed;   */
+			height: auto;  
+			margin: 0 auto; 
+		    width: 100%; 
+		    position: relative; 
+		    box-shadow: 0 0 50px rgba(0,0,0,0.8);
+		    padding: 100px 0;
+
+		}
+		#intro .container{
+			margin-top: 100px;
+		}
+		.name{
+			
+			color: #fff;
+			letter-spacing: 1px;
+			font-family: minimal;
+			font-size: 4em;
+			font-weight: 700;
+		}
+		.skills{
+			color: #bdc3c7;
+			letter-spacing: 1px;
+			font-size: 2em;
+			font-weight: 300;
+		}
+		hr.star-light,
+    hr.heading {
+    max-width: 300px;
+    border-top: solid 2px;
+    text-align: center;
+    }
+
+    .clients{
+    	padding-top: 150px;
+    	padding-bottom: 100px;
+    }
+		
