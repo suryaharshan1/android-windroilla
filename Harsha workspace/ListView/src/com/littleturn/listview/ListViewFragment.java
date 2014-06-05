@@ -1,103 +1,56 @@
 package com.littleturn.listview;
 
 import java.io.File;
-import java.io.FilenameFilter;
-import java.security.acl.LastOwnerException;
-import java.util.Dictionary;
-import java.util.Enumeration;
-import java.util.HashMap;
-import java.util.Map;
 
+import android.app.Activity;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.ListFragment;
-import android.support.v4.os.EnvironmentCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 public class ListViewFragment extends ListFragment {
+	ListViewListener activityCallback;
 	
-	/*private static ListView lv;*/
-	public ListViewFragment(){
-		 
-		
+	public interface ListViewListener{
+		public void askOpenDirectory(String directory);
 	}
-	//File[] files;
+	
+	public ListViewFragment(){
+		 	
+	}
+	
+	File[] files;
 	String[] filenames;
+	String dir;
+	
+	@Override
+	public void onAttach(Activity activity) {
+		// TODO Auto-generated method stub
+		super.onAttach(activity);
+		try{
+			activityCallback = (ListViewListener) activity;
+		}
+		catch(ClassCastException e){
+			throw new ClassCastException(activity.toString() + " must implement ListFragmentListener");
+		}
+	}
 	
 	@Override  
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		
-		File fp = Environment.getExternalStorageDirectory();
-		//File fp = Environment.getRootDirectory();
-		//File fp = Environment.getDownloadCacheDirectory();
-		FilenameFilter fnf = new FilenameFilter() {
-	 		
-			@Override
-			public boolean accept(File dir, String filename) {
-				// TODO Auto-generated method stub
-				if(filename.lastIndexOf('.') >= 0){
-					return false;
-				}
-				return true;
-			}
-		};
-		//files = fp.listFiles(fnf);
-		filenames = fp.list(fnf);
-		//Map<String, File> map = new HashMap<String, File>();
-		/*Dictionary<File, String> mydic = new Dictionary<File, String>() {
+		Bundle args = getArguments();
+		dir = args.getString("directory");
+		File fp = new File(dir);
+		files = fp.listFiles();
+		filenames = fp.list();
 
-			@Override
-			public Enumeration<String> elements() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String get(Object key) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public boolean isEmpty() {
-				// TODO Auto-generated method stub
-				return false;
-			}
-
-			@Override
-			public Enumeration<File> keys() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String put(File key, String value) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public String remove(Object key) {
-				// TODO Auto-generated method stub
-				return null;
-			}
-
-			@Override
-			public int size() {
-				// TODO Auto-generated method stub
-				return 0;
-			}
-			
-		};*/
 		ListAdapter ar = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1,filenames);
 		setListAdapter(ar);
 	
@@ -107,8 +60,10 @@ public class ListViewFragment extends ListFragment {
 	@Override
 	public void onListItemClick(ListView l, View v, int position, long id) {
 		// TODO Auto-generated method stub
-		//super.onListItemClick(l, v, position, id);
-		
-		Toast.makeText(getActivity(), getListView().getItemAtPosition(position).toString()	, Toast.LENGTH_SHORT).show();
+		if(files[position].isDirectory()){
+			activityCallback.askOpenDirectory(files[position].getAbsolutePath());
+		}
+		else
+			Toast.makeText(getActivity(), "FILE"	, Toast.LENGTH_SHORT).show();
 	}
 }

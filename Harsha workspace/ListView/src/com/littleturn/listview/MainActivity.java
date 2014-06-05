@@ -1,14 +1,17 @@
 package com.littleturn.listview;
 
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import com.littleturn.listview.ListViewFragment.ListViewListener;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity implements ListViewListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -41,11 +44,16 @@ public class MainActivity extends ActionBarActivity {
 			}
 		});*/
 		if (savedInstanceState == null) {
-			//  FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+			Bundle args = new Bundle();
+			args.putString("directory", Environment.getExternalStorageDirectory().getAbsolutePath());
+			
 		    //  ListFragment listFragment = new ListFragment();
-		    //  ft.add(R.id.container, listFragment, "List_Fragment");
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new ListViewFragment()).commit();
+		      
+			ListViewFragment lvf = new ListViewFragment();
+			lvf.setArguments(args);
+			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+			ft.add(R.id.container, lvf).commit();
+
 		}
 	}
 
@@ -67,6 +75,21 @@ public class MainActivity extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void askOpenDirectory(String dir) {
+		// TODO Auto-generated method stub
+		Toast.makeText(this, dir, Toast.LENGTH_SHORT).show();
+		Bundle args = new Bundle();
+		args.putString("directory", dir);
+		ListViewFragment lvf = new ListViewFragment();
+		lvf.setArguments(args);
+		FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+		ft.replace(R.id.container, lvf);
+		ft.addToBackStack(null);
+		ft.commit();
+		
 	}
 
 /**
