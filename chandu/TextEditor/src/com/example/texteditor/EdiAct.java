@@ -4,11 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,7 +26,7 @@ public class EdiAct extends Activity {
 		String content = i.getStringExtra("content");
 		path = i.getStringExtra("path");
 		ed.setText(content);
-		Toast.makeText(this, path, 500).show();
+		//Toast.makeText(this, path, 500).show();
 	}
 
 	public void myclick(View v){
@@ -37,6 +37,7 @@ public class EdiAct extends Activity {
 			byte b[] = tobesaved.getBytes();
 			try {
 				fos.write(b);
+				Toast.makeText(this, "Saved", 500).show();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				Toast.makeText(this, "IOException", 500).show();

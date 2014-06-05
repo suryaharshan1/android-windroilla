@@ -11,6 +11,7 @@ import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
@@ -41,6 +42,26 @@ public class MainActivity extends ListActivity implements OnItemClickListener{
 			Toast.makeText(this, e.toString(), 500).show();
 		}
 		
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.creatnew, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		if(item.getTitle().toString().equals("exit")){
+			finish();
+		}
+		else if(item.getTitle().toString().equals("newfile")){
+			Intent it = new Intent(this,Crenew.class);
+			startActivity(it);
+		}
+		return super.onOptionsItemSelected(item);
 	}
 
 	private void loadAllFiles(String rootfolder){
@@ -73,11 +94,9 @@ public class MainActivity extends ListActivity implements OnItemClickListener{
 			int a = 0;
 			FileInputStream fis = new FileInputStream(f);
 			Scanner sc = new Scanner(fis);
-			String content = sc.nextLine();
-			a = fis.read();
-			while(a>-1){
-				content += "\n" + sc.nextLine();
-				a = fis.read();
+			String content = "";
+			while((a = fis.read())>-1){
+				content +=  (char)a + "";
 			}
 			Intent it = new Intent(this,EdiAct.class);
 			it.putExtra("content", content);
