@@ -16,39 +16,10 @@ public class MainActivity extends ActionBarActivity implements ListViewListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-	/*	File fp = Environment.getExternalStorageDirectory();
-		FilenameFilter fnf = new FilenameFilter() {
-			
-			@Override
-			public boolean accept(File dir, String filename) {
-				// TODO Auto-generated method stub
-				if(filename.lastIndexOf('.') >= 0){
-					return false;
-				}
-				return true;
-			}
-		};
-		String[] files = fp.list(fnf);
 		
-		ArrayAdapter<String> ar = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,files);
-		setListAdapter(ar);
-		lv = getListView();
-		lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view,
-					int position, long id) {
-				// TODO Auto-generated method stub
-				
-				Toast.makeText(getApplication(), lv.getItemAtPosition(position).toString()	, Toast.LENGTH_SHORT).show();
-			}
-		});*/
 		if (savedInstanceState == null) {
 			Bundle args = new Bundle();
 			args.putString("directory", Environment.getExternalStorageDirectory().getAbsolutePath());
-			
-		    //  ListFragment listFragment = new ListFragment();
-		      
 			ListViewFragment lvf = new ListViewFragment();
 			lvf.setArguments(args);
 			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -80,7 +51,6 @@ public class MainActivity extends ActionBarActivity implements ListViewListener{
 	@Override
 	public void askOpenDirectory(String dir) {
 		// TODO Auto-generated method stub
-		Toast.makeText(this, dir, Toast.LENGTH_SHORT).show();
 		Bundle args = new Bundle();
 		args.putString("directory", dir);
 		ListViewFragment lvf = new ListViewFragment();
@@ -92,22 +62,48 @@ public class MainActivity extends ActionBarActivity implements ListViewListener{
 		
 	}
 
-/**
-	 * A placeholder fragment containing a simple view.
-	 */
-	/*
-	public static class PlaceholderFragment extends Fragment {
-
-		public PlaceholderFragment() {
+	@Override
+	public void askOpenFile(String directory) {
+		// TODO Auto-generated method stub
+		if(directory.endsWith(".txt")){
+			Toast.makeText(this, "Text File", Toast.LENGTH_SHORT).show();
 		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_main, container,
-					false);
-			return rootView;
+		else if(directory.endsWith(".mp3")){
+			//Toast.makeText(this, "Music File", Toast.LENGTH_SHORT).show();
+			Bundle args = new Bundle();
+			args.putString("directory", directory);
+			MediaViewFragment mvf = new MediaViewFragment();
+			mvf.setArguments(args);
+			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+			ft.replace(R.id.container, mvf);
+			ft.addToBackStack(null);
+			ft.commit();
 		}
-	}*/
+		else if(directory.endsWith(".mp4")){
+			//Toast.makeText(this, "Video File", Toast.LENGTH_SHORT).show();
+			Bundle args = new Bundle();
+			args.putString("directory", directory);
+			VideoViewFragment vvf = new VideoViewFragment();
+			vvf.setArguments(args);
+			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+			ft.replace(R.id.container, vvf);
+			ft.addToBackStack(null);
+			ft.commit();
+		}
+		else if(directory.endsWith(".jpg")){
+			//Toast.makeText(this, "Image File", Toast.LENGTH_SHORT).show();
+			Bundle args = new Bundle();
+			args.putString("directory", directory);
+			ImageViewFragment ivf = new ImageViewFragment();
+			ivf.setArguments(args);
+			FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+			ft.replace(R.id.container, ivf);
+			ft.addToBackStack(null);
+			ft.commit();
+		}
+		else {
+			Toast.makeText(this, "UNKNOWN FILE", Toast.LENGTH_SHORT).show();
+		}
+	}
 
 }

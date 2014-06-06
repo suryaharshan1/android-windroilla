@@ -1,6 +1,9 @@
 package com.littleturn.listview;
 
 import java.io.File;
+import java.io.FilenameFilter;
+import java.util.Arrays;
+import java.util.List;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -18,12 +21,15 @@ public class ListViewFragment extends ListFragment {
 	
 	public interface ListViewListener{
 		public void askOpenDirectory(String directory);
+		public void askOpenFile(String directory);
 	}
 	
 	public ListViewFragment(){
 		 	
 	}
 	
+	List<File> alf;
+	List<String> als;
 	File[] files;
 	String[] filenames;
 	String dir;
@@ -48,10 +54,23 @@ public class ListViewFragment extends ListFragment {
 		Bundle args = getArguments();
 		dir = args.getString("directory");
 		File fp = new File(dir);
-		files = fp.listFiles();
-		filenames = fp.list();
-
-		ListAdapter ar = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1,filenames);
+		
+		FilenameFilter fnf = new FilenameFilter() {
+			
+			@Override
+			public boolean accept(File dir, String filename) {
+				// TODO Auto-generated method stub
+					if(filename.lastIndexOf('.') != 0)
+						return true;
+				return false;
+			}
+		};
+		
+		files = fp.listFiles(fnf);
+		filenames = fp.list(fnf);
+		alf = Arrays.asList(files);
+		als = Arrays.asList(filenames);
+		ListAdapter ar = new ArrayAdapter<String>(inflater.getContext(), android.R.layout.simple_list_item_1,als);
 		setListAdapter(ar);
 	
 		return inflater.inflate(R.layout.fragment_main, container, false);
@@ -63,7 +82,8 @@ public class ListViewFragment extends ListFragment {
 		if(files[position].isDirectory()){
 			activityCallback.askOpenDirectory(files[position].getAbsolutePath());
 		}
-		else
-			Toast.makeText(getActivity(), "FILE"	, Toast.LENGTH_SHORT).show();
+		else{
+			activityCallback.askOpenFile(files[position].getAbsolutePath());
+		}
 	}
 }
