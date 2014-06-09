@@ -19,13 +19,12 @@ public class MainActivity extends Activity {
 	}
 	
 	
-    /** Called when the activity is first created. */
-    @Override
+    
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_main);
         
-        // Custom
+        
         counter = 0;
         add = (Button) findViewById(R.id.bAdd);
         sub = (Button) findViewById(R.id.bSub);
