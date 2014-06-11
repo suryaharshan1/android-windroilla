@@ -23,7 +23,7 @@ public class Splash extends Activity {
 				}catch(InterruptedException e){
 					e.printStackTrace();
 				}finally{
-					Intent openStartingPoint = new Intent("com.nandini.splashscreen.MAINACTIVITY");
+					Intent openStartingPoint = new Intent("com.nandini.splashscreen.MENU");
 					startActivity(openStartingPoint);
 				}
 			}
