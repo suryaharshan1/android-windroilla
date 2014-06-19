@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@android:color/background_dark">
+
+    <ImageView 
+        android:id="@+id/imageview"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+    
+    <ImageButton 
+        android:id="@+id/rotate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:src="@android:drawable/ic_menu_rotate"
+        android:contentDescription="@string/desc"
+        />
+
+    <Button
+        android:id="@+id/setwall"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/rotate"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:text="Set Wallpaper" 
+        android:textColor="@android:color/white"/>
+
+    
+    <Button
+        android:id="@+id/seteffect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/rotate"
+        android:layout_toLeftOf="@+id/rotate"
+        android:text="Effect" />
+    
+</RelativeLayout>
