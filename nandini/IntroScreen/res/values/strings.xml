@@ -18,4 +18,6 @@
 	<string name="remarks">Remarks</string>
 	<string name="sendbutton">Send Email</string>
 	<string name="wallpaperbutton">Set Wallpaper</string>
+	<string name="startactivity">Start Activity</string>
+	<string name="startactivityforresult">Start Activity For Result</string>
 </resources>
