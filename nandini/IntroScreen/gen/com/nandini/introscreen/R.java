@@ -1081,6 +1081,7 @@ containing a value of this type.
         public static final int wallpaper1=0x7f020058;
     }
     public static final class id {
+        public static final int aboutus=0x7f060060;
         public static final int action_bar=0x7f06001c;
         public static final int action_bar_activity_content=0x7f060015;
         public static final int action_bar_container=0x7f06001b;
@@ -1092,7 +1093,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_settings=0x7f060060;
+        public static final int action_settings=0x7f060062;
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int always=0x7f06000b;
         public static final int analogClock1=0x7f06004a;
@@ -1137,6 +1138,7 @@ containing a value of this type.
         public static final int never=0x7f060009;
         public static final int none=0x7f060010;
         public static final int normal=0x7f060000;
+        public static final int preferences=0x7f060061;
         public static final int progress_circular=0x7f060018;
         public static final int progress_horizontal=0x7f060019;
         public static final int rBad=0x7f060059;
@@ -1240,7 +1242,8 @@ containing a value of this type.
         public static final int text=0x7f030020;
     }
     public static final class menu {
-        public static final int main=0x7f0d0000;
+        public static final int cool_menu=0x7f0d0000;
+        public static final int main=0x7f0d0001;
     }
     public static final class raw {
         public static final int whistle=0x7f050000;
