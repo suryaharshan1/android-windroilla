@@ -39,6 +39,26 @@
         android:layout_below="@+id/editText2"
         android:layout_marginTop="57dp" 
         android:onClick="alarm"/>
+
+    <Button
+        android:id="@+id/button2"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button1"
+        android:layout_toRightOf="@+id/button1"
+        android:text="Date" 
+        android:onClick="alarm"/>
+
+    <Button
+        android:id="@+id/button3"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/button2"
+        android:layout_toRightOf="@+id/button2"
+        android:text="Time" 
+        android:onClick="alarm"/>
     
 </RelativeLayout>
 

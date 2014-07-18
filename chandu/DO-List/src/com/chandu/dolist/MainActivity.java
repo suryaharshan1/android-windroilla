@@ -1,25 +1,62 @@
 package com.chandu.dolist;
 
+import java.util.ArrayList;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
+import android.app.ListActivity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 import android.os.Build;
 
+@SuppressWarnings("unused")
 public class MainActivity extends ActionBarActivity {
 
+	ListView lv;
+	Cursor cs;
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		FeedReaderDbHelper mDbHelper = new FeedReaderDbHelper(this);
+		ArrayList list = mDbHelper.getAllNotes();
+		ArrayAdapter<String> ar = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+		lv = (ListView) findViewById(R.id.listView1);
+		ar.notifyDataSetChanged();
+		lv.setAdapter(ar);
+			lv.setOnItemClickListener(new OnItemClickListener() {
 
+			@Override
+			public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+					long arg3) {
+				// TODO Auto-generated method stub
+				int id = position +1;
+				Bundle dataBundle = new Bundle();
+				dataBundle.putInt("id", id);
+				Intent it = new Intent(getApplicationContext(),DisplayNote.class);
+				it.putExtras(dataBundle);
+				startActivity(it);
+			}
+		});
+			
+				
 	}
 
 	@Override
@@ -45,5 +82,6 @@ public class MainActivity extends ActionBarActivity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
+	
 
 }

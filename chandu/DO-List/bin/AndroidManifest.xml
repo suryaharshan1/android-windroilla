@@ -5,8 +5,9 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="15"
         android:targetSdkVersion="19" />
+    <uses-permission android:maxSdkVersion="19" android:name="android.permission.WAKE_LOCK"/>
 
     <application
         android:allowBackup="true"
@@ -30,6 +31,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.chandu.dolist.MainActivity" />
         </activity>
+        <activity
+            android:name="com.chandu.dolist.DisplayNote"
+            android:label="@string/title_activity_note"
+            android:parentActivityName="com.chandu.dolist.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.chandu.dolist.MainActivity" />
+        </activity>
+        <service android:name="com.chandu.dolist.SampleSchedulingService"></service>
+        <receiver android:name=".SampleSchedulingService"></receiver>
+        <receiver android:name=".SampleBootReceiver"
+        android:enabled="false">
+</receiver>
     </application>
 
 </manifest>
